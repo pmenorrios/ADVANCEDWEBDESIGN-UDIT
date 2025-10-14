@@ -1,34 +1,313 @@
-header {
-	background: #fff;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-nav {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-}
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-}
-nav ul li {
-	margin-right: 1rem;
-}
-nav ul li a {
-	text-decoration: none;
-	color: #333;
-}
-#site-awwwards {
-    background-color: #d77af3;
+/* Reset and base styles - Dark theme applied */
+/* Import Victor Mono from Google Fonts for the site's body text */
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	scroll-behavior: smooth;
+  line-height: 2.0;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Usamos Victor Mono como fuente principal, con monospace como respaldo */
+  font-family: 'Victor Mono', monospace;
+  /* Light text on dark background for good contrast */
+  color: #e6eef6; /* very light blue-gray */
+  background-color: #1d1d1d; /* near-black background for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Center header content */
+h1 {
+  /* Hacer que el h1 ocupe aproximadamente 300px y centrar su contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+}
+
+/* Typography - adapted for dark background */
+h1 {
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.03em;
+}
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+p,
+li {
+  margin-bottom: 1rem;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* Header - dark theme: deep charcoal with subtle border */
+header {
+  background: #121316; /* slightly lighter than body for separation */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(32, 9, 95, 0.06);
+}
+
+/* Footer - match dark theme and keep links readable */
+footer {
+  background: #1d1d1d;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(32, 9, 95, 0.06);
+  font-size: 0.875rem;
+  color: #e6eef6; /* muted light text */
+}
+
+/* Centrar el contenido del footer para mejor presentación */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer a {
+  color: #e6eef6; /* soft cyan link for contrast */
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  /* High-visibility focus for keyboard users on dark background */
+  outline: 2px solid rgba(32, 9, 95, 0.06);
+  outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #1d1d1d; /* semi-transparent white for subtlety */
+  color: #e6eef6;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+/* Award badges - use accent color visible on dark background */
+#site-awwwards {
+  color: #e6eef6;
+}
+#site-webby {
+  color: #e6eef6;
+}
+#site-fwa {
+  color: #e6eef6;
+}
+#site-cssda {
+  color: #e6eef6;
+}
+
+/* Navigation styles */
+/* Navigation - center the menu and use a dark background
+   Center navigation and set dark background for nav/header */
+header {
+  background: #1d1d1d; /* header background matches dark theme */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #1d1d1d; /* set nav background to match header */
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem; /* vertical padding for touch targets */
+  display: flex;
+  justify-content: center; /* center the nav items horizontally */
+  align-items: center;
+}
+nav ul li {
+  margin-right: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #e6eef6; /* light nav text */
+}
+html {
+  scroll-behavior: smooth;
 }
 nav ul li a:hover,
 nav ul li a:focus {
-	color: #007acc;
-	outline: none;
+  color: #e6eef6; /* hover accent */
+  outline: none;
 }
+.analysis-text {
+  columns: 1;
+  column-gap: 2rem;
+}
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.screenshots img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* pegamos desde aca*/
+/* Title styling - large, uppercase, and fades in on load */
+.title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeIn 2s forwards ease-in;
+}
+/* Individual Analysis Sections */
+/* Individual analysis sections - cards on dark background */
+section {
+  background: #1d1d1d; /* slightly elevated surface */
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.7);
+  scroll-margin-top: 80px;
+}
+
+section h2 {
+  color: #e6eef6; /* section headings light */
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  border-bottom: 3px solid rgba(159,208,255,0.12);
+  padding-bottom: 0.5rem;
+}
+
+/* Site Preview iFrame */
+.site-preview {
+  width: 100%;
+  height: 500px;
+  border: 2px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* Analysis Text with Responsive Columns */
+.analysis-text {
+  columns: 1;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+
+.analysis-text h3 {
+  color: #e6eef6; /* subtle warm heading accent on dark */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  break-after: avoid;
+  column-span: none;
+}
+
+.analysis-text p {
+  margin-bottom: 1rem;
+}
+
+.analysis-text ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.analysis-text li {
+  margin-bottom: 0.5rem;
+}
+
+.analysis-text strong {
+  color: #e6eef6; /* strong emphasis as light text */
+}
+/* fin pegamos desde aca*/
