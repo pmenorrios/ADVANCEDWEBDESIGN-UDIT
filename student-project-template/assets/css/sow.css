@@ -1,27 +1,3 @@
-/* Reset and base styles - Dark theme applied */
-/* Import Victor Mono from Google Fonts for the site's body text */
-@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap');
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  line-height: 2.0;
-  scroll-behavior: smooth;
-}
-
-body {
-  /* Usamos Victor Mono como fuente principal, con monospace como respaldo */
-  font-family: 'Victor Mono', monospace;
-  /* Light text on dark background for good contrast */
-  color: #e6eef6; /* very light blue-gray */
-  background-color: #1d1d1d; /* near-black background for contrast */
-  margin: 0;
-  padding: 0;
-}
-
 /* Center header content */
 h1 {
   /* Hacer que el h1 ocupe aproximadamente 300px y centrar su contenido verticalmente */
@@ -30,8 +6,9 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100px;
+  min-height: 400px;
 }
+
 
 /* Typography - adapted for dark background */
 h1 {
@@ -74,34 +51,11 @@ main {
   padding: 2rem 0;
 }
 
-/* Header - dark theme: deep charcoal with subtle border */
-header {
-  background: #121316; /* slightly lighter than body for separation */
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(32, 9, 95, 0.06);
-}
-
-/* Footer - match dark theme and keep links readable */
-footer {
-  background: #1d1d1d;
-  padding: 2rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(32, 9, 95, 0.06);
-  font-size: 0.875rem;
-  color: #e6eef6; /* muted light text */
-}
-
-/* Centrar el contenido del footer para mejor presentación */
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-footer a {
-  color: #e6eef6; /* soft cyan link for contrast */
-  text-decoration: none;
 }
 
 footer a:hover {
@@ -147,43 +101,10 @@ select:focus {
   outline-offset: 2px;
 }
 
-/* Skip link for screen readers */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: #1d1d1d; /* semi-transparent white for subtlety */
-  color: #e6eef6;
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 1000;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-/* Award badges - use accent color visible on dark background */
-#site-awwwards {
-  color: #e6eef6;
-}
-#site-webby {
-  color: #e6eef6;
-}
-#site-fwa {
-  color: #e6eef6;
-}
-#site-cssda {
-  color: #e6eef6;
-}
-
 /* Navigation styles */
 /* Navigation - center the menu and use a dark background
    Center navigation and set dark background for nav/header */
-header {
-  background: #1d1d1d; /* header background matches dark theme */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
+
 nav {
   position: fixed;
   top: 0;
@@ -201,7 +122,7 @@ nav ul {
   align-items: center;
 }
 nav ul li {
-  margin-right: 1rem;
+  margin-right: 8rem;
 }
 nav ul li a {
   text-decoration: none;
@@ -224,18 +145,8 @@ nav ul li a:focus {
     columns: 2;
   }
 }
-.screenshots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-.screenshots img {
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(255,255,255,0.06);
-}
 
-/* pegamos desde aca*/
+
 /* Title styling - large, uppercase, and fades in on load */
 .title {
   font-size: 3rem;
@@ -251,7 +162,7 @@ section {
   margin-bottom: 3rem;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.7);
+  box-shadow: 0 6px 20px #1d1d1d(2, 6, 23, 0.7);
   scroll-margin-top: 80px;
 }
 
@@ -262,6 +173,33 @@ section h2 {
   border-bottom: 3px solid rgba(159,208,255,0.12);
   padding-bottom: 0.5rem;
 }
+
+/* Make h2 links look like headings (no underline, inherit color) */
+section h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Small inline external-link arrow icon next to h2 links */
+.external-icon {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor; /* inherit heading color */
+}
+
+/* Move the arrow 3px to the right on hover/focus with a smooth transition */
+.external-icon {
+  transition: transform 180ms ease-in-out;
+}
+section h2 a:hover .external-icon,
+section h2 a:focus .external-icon {
+  transform: translateX(3px);
+}
+
 
 /* Site Preview iFrame */
 .site-preview {
@@ -287,7 +225,6 @@ section h2 {
 }
 
 .analysis-text h3 {
-  color: #e6eef6; /* subtle warm heading accent on dark */
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   break-after: avoid;
@@ -307,7 +244,4 @@ section h2 {
   margin-bottom: 0.5rem;
 }
 
-.analysis-text strong {
-  color: #e6eef6; /* strong emphasis as light text */
-}
-/* fin pegamos desde aca*/
+
