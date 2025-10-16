@@ -1,8 +1,9 @@
 /*Typography and Reset*/
-@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap'); @import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
 body h1 {
-  font-family: 'BBH Sans Hegarty', sans-serif;
+  font-family: 'Knewave', sans-serif;
   font-size: 7rem !important; /* Double size for more impact */
 }
 
