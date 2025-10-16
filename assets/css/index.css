@@ -20,7 +20,7 @@ html {
 
 body {
   /* Usamos Victor Mono como fuente principal, con monospace como respaldo */
-  font-family: 'Victor Mono', monospace;
+  font-family: 'Victor Mono';
   /* Light text on dark background for good contrast */
   color: #e6eef6; /* very light blue-gray */
   background-color: #1d1d1d; /* near-black background for contrast */
