@@ -1,0 +1,84 @@
+/*Typography and Reset*/
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+body h1 {
+  font-family: 'Knewave', sans-serif;
+  font-size: 7rem !important; /* Double size for more impact */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: 2.0;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Usamos Victor Mono como fuente principal, con monospace como respaldo */
+  font-family: 'Victor Mono';
+  /* Light text on dark background for good contrast */
+  color: #e6eef6; /* very light blue-gray */
+  background-color: #1d1d1d; /* near-black background for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header - dark theme*/
+header {
+  background: #121316; /* slightly lighter than body for separation */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(32, 9, 95, 0.06);
+}
+
+/* Footer - match dark theme and keep links readable */
+footer {
+  background: #1d1d1d;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(32, 9, 95, 0.06);
+  font-size: 0.875rem;
+  color: #e6eef6; /* muted light text */
+  text-decoration: none;
+}
+
+/* Award badges - use accent color visible on dark background */
+#site-awwwards {
+  color: #e6eef6;
+}
+#site-webby {
+  color: #e6eef6;
+}
+#site-fwa {
+  color: #e6eef6;
+}
+#site-cssda {
+  color: #e6eef6;
+}
+
+header {
+  background: #1d1d1d; /* header background matches dark theme */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.analysis-text h3 {
+  color: #e6eef6;
+}
+.analysis-text strong {
+  color: #e6eef6; /* strong emphasis as light text */
+}
+
+/* Make h2 links look like headings (no underline, inherit color) */
+section h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+section h2 a:hover,
+section h2 a:focus {
+  color: #f8ffa8; /* subtle hover accent */
+  text-decoration: underline;
+}

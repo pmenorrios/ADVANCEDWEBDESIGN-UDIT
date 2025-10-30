@@ -10,7 +10,8 @@
 	<meta name="author" content="Paula Menor" />
 	<meta name="robots" content="index, follow" />
 	<title>My Web Project - WEB ATELIER (UDIT)</title>
-	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+
 </head>
 
 <body>
@@ -28,6 +29,39 @@
 			</ul>
 		</nav>
 	</header>
+	<input type="radio" name="theme" id="theme-auto" hidden checked />
+		<input type="radio" name="theme" id="theme-light" hidden />
+		<input type="radio" name="theme" id="theme-dark" hidden />
+		<div class="app">
+			<header>
+				<nav>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Features</a></li>
+						<li><a href="./responsive/exercise-1.html">Responsive Design</a></li>
+						<li><a href="./responsive/exercise-2.html">Responsive Design 2</a></li>
+						<li><a href="./animations/index.html">Animations</a></li>
+					</ul>
+				</nav>
+				<!--
+				Theme Toggle: Pedagogical Explanation
+
+				This form provides a CSS-only theme toggle. It uses three radio inputs for 'Auto,' 'Light,' and 'Dark' themes. 
+				Each input has a unique id, and the corresponding labels serve as clickable toggle buttons.
+				- All inputs are 'hidden' to show only the styled label buttons.
+				- The checked input determines the selected theme. 
+				- Modern CSS (see site.css) uses :root:has(#theme-light:checked), etc., to set theme variables.
+				- "Auto" means the site will follow the user's system preference (light/dark).
+				- "Light" and "Dark" force the explicit color theme, regardless of system setting.
+
+				This approach does not require JavaScript. All logic is handled in CSS using the 'has()' selector and custom properties.
+			-->
+				<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
+					<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
+					<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
+					<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
+				</form>
+			</header>
 
 	<main id="main" class="container">
 		<section>
@@ -59,12 +93,19 @@
 
 	<footer>
 		<div class="container">
-			<p>© 2025 [Your Name] — WEB ATELIER (UDIT) · Web Design (2025 Fall).</p>
+			<p>© 2025 PAULA MENOR RÍOS — WEB ATELIER (UDIT) · Web Design (2025 Fall).</p>
 			<p>
 				<a href="https://github.com/ruvebal/web-atelier-udit">Course Framework</a>
 				·
 				<a href="project-brief.md">Project Brief</a>
 			</p>
+			
+		<tr valign="top">
+			<td style="padding-top: 8px">
+				<img class="footer-logo" src="https://assets.griddo.udit.es/pro-udit/static/logo-udit-218a5df2b42af4ad4d649285a262f6e6.png" alt="UDIT logo" loading="lazy">
+			</td>
+		</tr>
+	</tbody></table>
 		</div>
 	</footer>
 

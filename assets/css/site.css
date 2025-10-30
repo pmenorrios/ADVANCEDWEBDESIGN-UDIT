@@ -1,0 +1,37 @@
+body {
+	font-family: sans-serif;
+	line-height: 1.5;
+	max-width: 1800px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+header,
+footer {
+	background: #f0f0f0;
+	padding: 1rem;
+}
+
+nav a {
+	margin-right: 1rem;
+	text-decoration: none;
+	color: #0066cc;
+}
+
+section {
+	margin-bottom: 2rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.parallax-bg {
+	background-image: url('../images/img_paralax.jpg');
+	min-height: 400px;
+	background-attachment: fixed; /* This creates the parallax effect! */
+	background-position: center;
+	background-size: cover;
+}
