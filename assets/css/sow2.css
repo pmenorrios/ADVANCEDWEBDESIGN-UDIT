@@ -1,9 +1,9 @@
 /*Typography and Reset*/
-@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
 
 body h1 {
-  font-family: 'Knewave', sans-serif;
+  font-family: "Victor Mono", sans-serif;
   font-size: 7rem !important; /* Double size for more impact */
 }
 
@@ -14,13 +14,13 @@ body h1 {
 }
 
 html {
-  line-height: 2.0;
+  line-height: 2;
   scroll-behavior: smooth;
 }
 
 body {
   /* Usamos Victor Mono como fuente principal, con monospace como respaldo */
-  font-family: 'Victor Mono';
+  font-family: "Victor Mono";
   /* Light text on dark background for good contrast */
   color: #e6eef6; /* very light blue-gray */
   background-color: #1d1d1d; /* near-black background for contrast */

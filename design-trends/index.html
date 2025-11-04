@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DESIGN TRENDS</title>
+    <link rel="stylesheet" href="./design-trends.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>SCOTLAND</h1>
+      <p>Secrets not told</p>
+    </div>
+
+    <div class="parallax-bg"></div>
+
+    <div class="content">
+      <h2>What Is Parallax Scrolling?</h2>
+      <p>
+        Parallax scrolling makes backgrounds move slower than foreground content
+        as you scroll. It's like looking out a car window: trees (background)
+        move slower than the road (foreground). This adds depth and makes sites
+        feel dynamic.
+      </p>
+
+      <h2>Technique 1: CSS Fixed Background</h2>
+      <p>
+        The key CSS property is
+        <code>background-attachment: fixed</code>
+        . This keeps the background image stationary while the content scrolls
+        over it.
+      </p>
+    </div>
+    <div class="parallax-bg"></div>
+
+    <div class="content">
+      <h2>BOOKS</h2>
+      <p>
+        The section above uses (the default). Notice how it scrolls with the
+        content instead of staying fixed. This is the traditional approach.
+      </p>
+    </div>
+
+    <!-- JavaScript-based Parallax with Multiple Layers -->
+    <div class="parallax-bg"></div>
+
+    <div class="content">
+      <h2>HIGHLANDS CLANS</h2>
+      <p>
+        The section above uses to move elements at different speeds. This offers
+        more control than pure CSS.
+      </p>
+    </div>
+
+    <!-- Image-based Parallax Layers -->
+    <div class="parallax-bg"></div>
+
+    <div class="content">
+      <h2>GO WATCH SHEEPS IN THE HIGHLANDS</h2>
+      <p>
+        The section above combines multiple background images moving at
+        different speeds to create a 3D depth effect.
+      </p>
+    </div>
+
+    <script>
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+      let isReducedMotion = prefersReducedMotion.matches;
+
+      // Handle CSS-based parallax
+      function handleMotionPreference() {
+        const parallaxElements = document.querySelectorAll(".parallax-bg");
+
+        if (isReducedMotion) {
+          // User prefers reduced motion - disable parallax
+          parallaxElements.forEach((el) => {
+            el.style.backgroundAttachment = "scroll";
+          });
+          console.log("Parallax disabled: user prefers reduced motion");
+        }
+      }
+
+      // JavaScript-based Parallax Implementation
+      function initParallax() {
+        if (isReducedMotion) {
+          console.log(
+            "JS Parallax disabled: respecting reduced motion preference"
+          );
+          return;
+        }
+
+        const parallaxLayers = document.querySelectorAll(
+          ".parallax-layer, .image-layer"
+        );
+        let ticking = false;
+
+        function updateParallax() {
+          parallaxLayers.forEach((layer) => {
+            const speed = parseFloat(layer.dataset.speed) || 0.5;
+            const section = layer.parentElement;
+            const rect = section.getBoundingClientRect();
+
+            // Only animate when section is in viewport
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              // Calculate scroll position relative to section's position
+              const sectionTop = section.offsetTop;
+              const scrolled = window.pageYOffset;
+              const offset = scrolled - sectionTop;
+              const yPos = offset * speed * 0.5; // Multiply by 0.5 to reduce movement
+
+              // Use transform for better performance
+              layer.style.transform = `translateY(${yPos}px)`;
+            }
+          });
+
+          ticking = false;
+        }
+
+        function requestTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+
+        // Throttle scroll events using requestAnimationFrame
+        window.addEventListener("scroll", requestTick, { passive: true });
+
+        // Initial update
+        updateParallax();
+      }
+
+      // Initialize everything
+      handleMotionPreference();
+      initParallax();
+
+      // Listen for motion preference changes
+      prefersReducedMotion.addEventListener("change", (e) => {
+        isReducedMotion = e.matches;
+        handleMotionPreference();
+
+        if (isReducedMotion) {
+          // Reset all transforms
+          document
+            .querySelectorAll(".parallax-layer, .image-layer")
+            .forEach((layer) => {
+              layer.style.transform = "translateY(0)";
+            });
+        } else {
+          initParallax();
+        }
+      });
+
+      // Log performance info for learning
+      console.log("🎬 Parallax Demo Loaded");
+      console.log(
+        "📊 Layers detected:",
+        document.querySelectorAll(".parallax-layer, .image-layer").length
+      );
+      console.log(
+        "♿ Reduced motion:",
+        isReducedMotion ? "ENABLED" : "DISABLED"
+      );
+    </script>
+
+    <div id="bbai-shadow-wrapper"></div>
+    <div id="chrome-extension-boilerplate-react-vite-content-view-root"></div>
+    <div><span></span></div>
+  </body>
+</html>
